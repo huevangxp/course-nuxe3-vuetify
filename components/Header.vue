@@ -10,11 +10,19 @@
     <v-btn   to="/" text>Home</v-btn>
     <v-btn to="/about" tonal>About</v-btn>
     <v-btn to="/users" tonal>users</v-btn>
+    <v-btn   tonal>product</v-btn>
+    <v-btn   tonal @click="logout"> <v-icon dark>mdi-power</v-icon> </v-btn>
 
   </v-app-bar>
 </template>
 
 <script lang="ts" setup>
+const token = useCookie('token')
+
+
+
+
+
 </script>
 
 

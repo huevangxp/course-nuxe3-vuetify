@@ -13,11 +13,16 @@
 </template>
 
 <script lang="ts" setup>
-import {definePageMeta} from "#imports";
 
-// definePageMeta({
-//   middleware:'authenticate'
-// })
+definePageMeta({
+  // middleware:'auth'
+})
+
+const token = useCookie('token')
+
+onMounted(()=>{
+
+})
 
 
 </script>

@@ -1,4 +1,5 @@
 import {defineStore} from "pinia";
+import {useCookie} from "#app";
 
 export  const apiStore = defineStore('apiStore',{
 
@@ -17,9 +18,20 @@ export  const apiStore = defineStore('apiStore',{
             console.log(data)
 
         },
-        async sendPost(data: any){
-            console.log("Sending post...", data);
-            alert('login success')
+        async sendLogin(data: any){
+          try {
+              const {$axios } = useNuxtApp()
+
+              const setToken = useCookie('token')
+
+              await $axios.post('/login', data)
+                  .then((res)=>{
+                      const token = res.data.token;
+                      setToken.value = token;
+                  })
+          }catch (e) {
+              console.log(e)
+          }
         }
     },
     getters:{
