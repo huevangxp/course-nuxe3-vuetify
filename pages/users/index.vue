@@ -25,7 +25,6 @@
 <script setup lang="ts">
   import {apiUserStore} from "~/stores/apiUser";
   import {storeToRefs} from "pinia";
-  import {backgroundColorNames} from "chalk";
 
   const c1 = '';
 
