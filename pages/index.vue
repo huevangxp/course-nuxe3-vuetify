@@ -11,7 +11,6 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
 
 const c1 = ref(null);
 
