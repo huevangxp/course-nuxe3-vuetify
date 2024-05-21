@@ -23,11 +23,13 @@ export  const apiStore = defineStore('apiStore',{
               const {$axios } = useNuxtApp()
 
               const setToken = useCookie('token')
-
+                const router = useRouter();
               await $axios.post('/login', data)
                   .then((res)=>{
                       const token = res.data.token;
+                      console.log(token)
                       setToken.value = token;
+                      router.push("/");
                   })
           }catch (e) {
               console.log(e)

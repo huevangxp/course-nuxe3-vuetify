@@ -1,13 +1,12 @@
-
-
 <template>
   <v-container class="mt-10">
     <h1 class="text-center" @click="clickSenddata">
       Logn in page
     </h1>
-  <v-card max-width="600" class="mx-auto elevation-0 mt-10">
+
+    <v-card max-width="600" class="mx-auto elevation-0 mt-10">
       <v-row>
-        <v-col cols="12" >
+        <v-col cols="12">
           <v-text-field
               v-model=" username"
               clearable
@@ -22,27 +21,23 @@
 
         </v-col>
       </v-row>
-    <v-card-title>
-      Foget password
-    </v-card-title>
-    <v-card-actions>
-      <v-spacer></v-spacer>
-      <v-btn class="bg-teal" flat width="60" height="40" @click="clickSenddata">Login</v-btn>
-    </v-card-actions>
-  </v-card>
+      <v-card-title>
+        Foget password
+      </v-card-title>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn class="bg-teal" flat width="60" height="40" @click.prevent="clickSenddata">Login</v-btn>
+      </v-card-actions>
+    </v-card>
   </v-container>
 </template>
 
 <script lang="ts" setup>
 
-// import {useLayout} from "vuetify";
 
-// definePageMeta({
-//   middleware: ['uaAuth']
-// })
 
 definePageMeta({
-  // middleware: 'unAuth',
+  middleware: 'un-auth',
   layout: false,
 
 })
@@ -57,26 +52,24 @@ import {storeToRefs} from "pinia";
 const {Posts} = storeToRefs(apiStore());
 
 // call function/action
-const {getPost, sendLogin } = apiStore();
+const {getPost, sendLogin} = apiStore();
 
 const username = ref('')
 const password = ref('')
 
 const token = useCookie('token');
 
-
-const clickSenddata = async () => {
-
-
-  const data = {
-    username:username.value,
+const router = useRouter();
+const clickSenddata = () => {
+  sendLogin({
+    username: username.value,
     password: password.value
-  };
-  sendLogin(data)
+  })
 }
 
-onMounted(()=>{
+onMounted(() => {
   getPost();
+
 
 })
 

@@ -8,7 +8,7 @@
     <v-app-bar-title>Application Bar</v-app-bar-title>
     <v-spacer/>
     <v-btn   to="/" text>Home</v-btn>
-    <v-btn to="/about" tonal>About</v-btn>
+    <nuxt-link to="/about/"> About</nuxt-link>
     <v-btn to="/users" tonal>users</v-btn>
     <v-btn   tonal>product</v-btn>
     <v-btn   tonal @click="logout"> <v-icon dark>mdi-power</v-icon> </v-btn>
@@ -18,10 +18,13 @@
 
 <script lang="ts" setup>
 const token = useCookie('token')
+const router = useRouter();
 
+const logout =()=>{
+  token.value = null;
 
-
-
+  router.push('/login');
+}
 
 </script>
 
