@@ -20,6 +20,7 @@ export default defineNuxtConfig({
   ssr:false,
   plugins:[
       '@/plugins/axios.ts',
+      '@/plugins/vuetify.ts',
   ],
   modules: [
     '@pinia/nuxt',

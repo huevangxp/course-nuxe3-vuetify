@@ -6,7 +6,7 @@ export const apiUserStore = defineStore("apiUser", {
         Users:[]
     }),
     actions: {
-        async getUser(){
+        async getUser(id: string){
             try{
                 this.isLoggedIn = true;
                 const {$axios} = useNuxtApp();

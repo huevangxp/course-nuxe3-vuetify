@@ -1,13 +1,5 @@
 <template>
   <div>
-    {{id}} username: {{username}}
+    huevangt
   </div>
 </template>
-
-<script setup lang="ts">
-
-  const route = useRoute()
-  const id = route.query.id;
-  const username = route.query.username;
-console.log(route.query)
-</script>

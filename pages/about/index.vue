@@ -11,7 +11,6 @@ useHead({
 
 const router = useRouter()
 
-
 const sendId =   () => {
 
   const id = 23;

@@ -6,6 +6,35 @@
         hide-inputs
         show-swatches
     ></v-color-picker>
+    <v-color-picker
+        v-model="c1"
+        hide-inputs
+        show-swatches
+    ></v-color-picker>    <v-color-picker
+      v-model="c1"
+      hide-inputs
+      show-swatches
+  ></v-color-picker>    <v-color-picker
+      v-model="c1"
+      hide-inputs
+      show-swatches
+  ></v-color-picker>    <v-color-picker
+      v-model="c1"
+      hide-inputs
+      show-swatches
+  ></v-color-picker>    <v-color-picker
+      v-model="c1"
+      hide-inputs
+      show-swatches
+  ></v-color-picker>    <v-color-picker
+      v-model="c1"
+      hide-inputs
+      show-swatches
+  ></v-color-picker>    <v-color-picker
+      v-model="c1"
+      hide-inputs
+      show-swatches
+  ></v-color-picker>
     <div class="my-10 mx-10"></div>
   </div>
 </template>
