@@ -4,8 +4,8 @@
         v-model="drawer"
         :rail="rail"
         @click="rail = false"
-       class="bg-white mx-16 mt-6 elevation-20 rounded-lg "
-style="height: 900px"
+        class="bg-white mx-16 mt-6 elevation-20 rounded-lg"
+        style="height: 900px"
     >
       <v-card elevation="0" class="mx-auto">
         <v-card-title class="d-flex justify-center">
@@ -20,15 +20,15 @@ style="height: 900px"
             :to="item.to"
             router
             exact
+            v-slot:default="{ active, toggle }"
         >
-          <v-list-item-action>
+          <v-list-item-action @click="toggle">
+            <v-icon :color="active ? 'teal' : 'grey'">{{ item.icon }}</v-icon>
           </v-list-item-action>
-          <v-list-item-content >
-            <v-list-item-title> <v-icon>{{item.icon}}</v-icon> {{ item.title }}</v-list-item-title>
+          <v-list-item-content>
+            <v-list-item-title :class="{'text-teal': active}">{{ item.title }}</v-list-item-title>
           </v-list-item-content>
-
         </v-list-item>
-
       </v-list>
 
       <template v-slot:append>
@@ -38,10 +38,10 @@ style="height: 900px"
           </v-btn>
         </div>
       </template>
-
     </v-navigation-drawer>
+
     <div style="text-align: center">
-      <v-app-bar :clipped-left="clipped"  class="mt-6 py-2 rounded-lg scroll"  style="margin-left: 200px; width: 1300px">
+      <v-app-bar :clipped-left="clipped" class="mt-6 py-2 rounded-lg scroll" style="margin-left: 200px; width: 1300px">
         <v-btn
             icon
             @click.stop="rail = !rail"
@@ -51,7 +51,6 @@ style="height: 900px"
         <h3 class="text-teal">{{ title }}</h3>
         <v-spacer />
         <v-text-field
-
             density="compact"
             label="Search"
             prepend-inner-icon="mdi-magnify"
@@ -68,13 +67,15 @@ style="height: 900px"
         </v-btn>
       </v-app-bar>
     </div>
+
     <v-main>
-      <v-card elevation="0" max-width="1300" class=" pt-12 rounded-lg" style="background-color: #F0F5F9; margin-left: 200px;">
+      <v-card elevation="0" max-width="1300" class="pt-12 rounded-lg" style="background-color: #F0F5F9; margin-left: 200px;">
         <NuxtPage />
       </v-card>
     </v-main>
   </v-app>
 </template>
+
 <script setup>
 import { ref } from 'vue'
 
@@ -82,7 +83,7 @@ const clipped = ref(false)
 const drawer = ref(false)
 const miniVariant = ref(false)
 const title = ref('Admin')
-   const  rail = ref(false)
+const rail = ref(false)
 const items = [
   {
     icon: 'mdi-apps',
@@ -91,13 +92,13 @@ const items = [
   },
   {
     icon: 'mdi-chart-bubble',
-    title: 'bout',
-    to:'/about'
+    title: 'About',
+    to: '/about'
   },
   {
     icon: 'mdi-chart-bubble',
-    title: 'user',
-    to:'/users'
+    title: 'Users',
+    to: '/users'
   }
 ]
 
@@ -105,10 +106,15 @@ const toggleMiniVariant = () => {
   miniVariant.value = !miniVariant.value
 }
 </script>
+
 <style>
 .scroll {
   position: sticky;
   top: 0px;
   z-index: 1; /* Ensure it's above other elements */
+}
+
+.text-teal {
+  color: teal !important;
 }
 </style>

@@ -24,6 +24,7 @@ export default defineNuxtConfig({
   ],
   modules: [
     '@pinia/nuxt',
+    '@hypernym/nuxt-anime',
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
         // config:{}
